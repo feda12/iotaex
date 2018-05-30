@@ -3,7 +3,15 @@ defmodule IotaEx.NodeTest do
 
   doctest IotaEx.Node
 
-  test "returns node info" do
-    {:ok, node_info} = IotaEx.Node.info()
+  setup do
+    node = %IotaEx.Node{name: "Test Node", url: "localhost", port: "200"}
+
+    {:ok, node: node}
+  end
+
+  test "returns node info", %{node: node} do
+    {:ok, node_info} = IotaEx.Node.info(node)
+
+    IO.inspect node_info
   end
 end

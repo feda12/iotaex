@@ -7,7 +7,7 @@ defmodule IotaEx.FakeHttp do
   we would expect.
   """
 
-  def post("getNodeInfo", _) do
+  def post(node, %{command: "getNodeInfo"}) do
     {:ok,
      %{
        "appName" => "IRI",
