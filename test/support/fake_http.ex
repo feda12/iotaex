@@ -4,10 +4,18 @@ defmodule IotaEx.FakeHttp do
   library.
 
   It reproduces responses to commands as
-  we would expect.
+  we would expect from the IotaAPI.
   """
 
-  def post(node, %{command: "getNodeInfo"}) do
+  def post(_, %{command: nil}) do
+    {:error, "'command' parameter has not been specified"}
+  end
+
+  def post(_, %{command: ""}) do
+    {:error, "'command' parameter has not been specified"}
+  end
+
+  def post(_, %{command: "getNodeInfo"}) do
     {:ok,
      %{
        "appName" => "IRI",
@@ -29,5 +37,40 @@ defmodule IotaEx.FakeHttp do
        "tips" => 3,
        "transactionsToRequest" => 0
      }}
+  end
+
+  def post(_, %{command: "getNeighbors"}) do
+    {:ok,
+     %{
+       "duration" => 37,
+       "neighbors" => [
+         %{
+           "address" => "/8.8.8.8:14265",
+           "numberOfAllTransactions" => 922,
+           "numberOfInvalidTransactions" => 0,
+           "numberOfNewTransactions" => 92
+         },
+         %{
+           "address" => "/8.8.8.8:5000",
+           "numberOfAllTransactions" => 925,
+           "numberOfInvalidTransactions" => 0,
+           "numberOfNewTransactions" => 20
+         }
+       ]
+     }}
+  end
+
+  def post(_, %{command: "addNeighbors", uris: uris}) do
+    {:ok, %{
+      "addedNeighbors" => Enum.count(uris),
+      "duration" => 2
+    }}
+  end
+
+  def post(_, %{command: "removeNeighbors", uris: uris}) do
+    {:ok, %{
+      "removedNeighbors" => Enum.count(uris),
+      "duration" => 2
+    }}
   end
 end

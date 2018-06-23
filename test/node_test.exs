@@ -19,10 +19,4 @@ defmodule IotaEx.NodeTest do
       assert n.port == 80
     end
   end
-
-  test "returns node info", %{node: node} do
-    {:ok, node_info} = IotaEx.Node.info(node)
-
-    IO.inspect node_info
-  end
 end
