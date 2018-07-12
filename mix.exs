@@ -8,7 +8,15 @@ defmodule IotaEx.MixProject do
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
       elixirc_paths: elixirc_paths(Mix.env),
-      deps: deps()
+      deps: deps(),
+
+      # ExDoc
+      name: "IotaEx",
+      source_url: "https://github.com/feda12/iotaex",
+      docs: [
+        main: "IotaEx",
+        extras: ["README.md"]
+      ]
     ]
   end
 
@@ -25,7 +33,9 @@ defmodule IotaEx.MixProject do
   defp deps do
     [
       {:httpotion, "~> 3.1.0"},
-      {:poison, "~> 3.1"}
+      {:poison, "~> 3.1"},
+
+      {:ex_doc, "~> 0.18.0", only: :dev, runtime: false}
     ]
   end
 end
