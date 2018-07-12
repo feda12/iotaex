@@ -150,6 +150,10 @@ defmodule IotaEx.FakeHttp do
     {:ok, %{"states" => [true], "duration" => 1}}
   end
 
+  def post(_, %{command: "interruptAttachingToTangle"}) do
+    {:ok, %{}}
+  end
+
   # def post(_, %{command: "", ) do
   #   {:ok,
   #     %{
