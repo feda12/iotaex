@@ -9,14 +9,14 @@ defmodule IotaEx.MixProject do
       start_permanent: Mix.env() == :prod,
       elixirc_paths: elixirc_paths(Mix.env),
       deps: deps(),
+      package: package(),
+      description: description(),
+      maintainers: maintainers(),
 
       # ExDoc
       name: "IotaEx",
       source_url: "https://github.com/feda12/iotaex",
-      docs: [
-        main: "IotaEx",
-        extras: ["README.md"]
-      ]
+      docs: docs()
     ]
   end
 
@@ -42,6 +42,19 @@ defmodule IotaEx.MixProject do
   defp package() do
     [
       licenses: ["MIT"],
+    ]
+  end
+
+  defp docs() do
+    [
+      main: "IotaEx",
+      extras: ["README.md"]
+    ]
+  end
+
+  defp maintainers() do
+    [
+      "Ben Le Cam"
     ]
   end
 end
