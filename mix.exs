@@ -27,6 +27,12 @@ defmodule IotaEx.MixProject do
     ]
   end
 
+  defp description() do
+    """
+    A wrapper library around Iota API for nodes.
+    """
+  end
+
   defp elixirc_paths(:test), do: ["lib", "test/support"]
   defp elixirc_paths(_),     do: ["lib"]
 
