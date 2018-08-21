@@ -38,4 +38,10 @@ defmodule IotaEx.MixProject do
       {:ex_doc, "~> 0.18.0", only: :dev, runtime: false}
     ]
   end
+
+  defp package() do
+    [
+      licenses: ["MIT"],
+    ]
+  end
 end
