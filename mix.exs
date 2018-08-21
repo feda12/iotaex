@@ -11,7 +11,6 @@ defmodule IotaEx.MixProject do
       deps: deps(),
       package: package(),
       description: description(),
-      maintainers: maintainers(),
 
       # ExDoc
       name: "IotaEx",
@@ -48,6 +47,8 @@ defmodule IotaEx.MixProject do
   defp package() do
     [
       licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/feda12/iotaex"},
+      maintainers: maintainers()
     ]
   end
 
